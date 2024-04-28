@@ -10,8 +10,10 @@ import net.michaelhofmann.graphic.simpic.generic.ImageCard;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import net.michaelhofmann.graphic.simpic.executor.DeleteExecutor;
 import net.michaelhofmann.graphic.simpic.show.SimilarClusterViewer;
 import net.michaelhofmann.graphic.simpic.show.SimpleViewer;
+import net.michaelhofmann.graphic.simpic.spi.GreyChecker;
 import net.michaelhofmann.graphic.simpic.util.Parameter;
 
 /**
@@ -38,17 +40,18 @@ public class DemoFinder {
             new SimpleViewer(para).show(allCards);
         }
         if (showSet.contains("SimilarClusterViewer")) {
-            new SimilarClusterViewer(para).show(allCards);
+            new SimilarClusterViewer(para).show(allCards, GreyChecker.IDENT);
         }
         
         // E X E C U T E
-        String exe = para.getProperty("simpic.execute", "NULL");
-        switch (exe) {
+        String executorName = para.getProperty("simpic.execute", "NULL");
+        switch (executorName) {
             case "NULL" -> {
                 // NOP
             }
             case "DELETE" -> {
-                // NOP
+                DeleteExecutor exe = new DeleteExecutor(para);
+                exe.execute(allCards, GreyChecker.IDENT);
             }
             case "MOVE" -> {
                 // NOP

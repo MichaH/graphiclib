@@ -7,7 +7,6 @@ package net.michaelhofmann.graphic.simpic.show;
 import java.util.List;
 import net.michaelhofmann.graphic.simpic.generic.AbstractThing;
 import net.michaelhofmann.graphic.simpic.generic.ImageCard;
-import net.michaelhofmann.graphic.simpic.spi.GreyChecker;
 import net.michaelhofmann.graphic.simpic.util.Parameter;
 
 
@@ -19,9 +18,9 @@ public class SimilarClusterViewer extends AbstractThing {
         super(IDENT, para);
     }
     
-    public void show(List<ImageCard> allCards) {
+    public void show(List<ImageCard> allCards, String processIdent) {
         allCards.stream()
-                .map(c -> c.getSortedSuperCluster(GreyChecker.IDENT))
+                .map(c -> c.getSortedSuperCluster(processIdent))
                 .forEach(SimilarClusterViewer::dimSortString);
     }
     

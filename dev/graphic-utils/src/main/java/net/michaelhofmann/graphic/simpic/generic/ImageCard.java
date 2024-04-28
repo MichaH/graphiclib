@@ -101,6 +101,14 @@ public class ImageCard {
         return path.toFile();
     }
 
+    public String getFilename() {
+        return getFile().getName();
+    }
+
+    public String getParentFilename() {
+        return getFile().getParent();
+    }
+
     public BufferedImage getBufferedImage() {
         return bufferedImage;
     }
