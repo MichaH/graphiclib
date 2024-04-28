@@ -6,8 +6,6 @@ package net.michaelhofmann.graphic.simpic.executor;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.michaelhofmann.graphic.simpic.generic.ImageCard;
 import net.michaelhofmann.graphic.simpic.util.Parameter;
 

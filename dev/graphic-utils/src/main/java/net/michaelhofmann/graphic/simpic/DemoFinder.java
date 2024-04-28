@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import net.michaelhofmann.graphic.simpic.executor.DeleteExecutor;
+import net.michaelhofmann.graphic.simpic.executor.MoveExecutor;
 import net.michaelhofmann.graphic.simpic.show.SimilarClusterViewer;
 import net.michaelhofmann.graphic.simpic.show.SimpleViewer;
 import net.michaelhofmann.graphic.simpic.spi.GreyChecker;
@@ -54,7 +55,8 @@ public class DemoFinder {
                 exe.execute(allCards, GreyChecker.IDENT);
             }
             case "MOVE" -> {
-                // NOP
+                MoveExecutor exe = new MoveExecutor(para);
+                exe.execute(allCards, GreyChecker.IDENT);
             }
             case "RENAME" -> {
                 // NOP
