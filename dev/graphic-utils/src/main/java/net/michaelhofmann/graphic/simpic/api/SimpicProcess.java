@@ -8,19 +8,19 @@ package net.michaelhofmann.graphic.simpic.api;
 import net.michaelhofmann.graphic.simpic.generic.ImageCard;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import net.michaelhofmann.graphic.simpic.generic.AbstractThing;
 import net.michaelhofmann.graphic.simpic.generic.Vuzzy;
+import net.michaelhofmann.graphic.simpic.util.Parameter;
 
 /**
  *
  * @author email@MichaelHofmann.net
  */
-public abstract class SimpicProcess
+public abstract class SimpicProcess extends AbstractThing
         implements Consumer<ImageCard>, Predicate<ImageCard> {
     
-    public final String ident;
-
-    public SimpicProcess(String ident) {
-        this.ident = ident;
+    public SimpicProcess(String ident, Parameter para) {
+        super(ident, para);
     }
 
     @Override

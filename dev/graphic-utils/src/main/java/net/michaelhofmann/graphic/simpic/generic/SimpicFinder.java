@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.util.List;
 import net.michaelhofmann.graphic.simpic.spi.GreyChecker;
 import net.michaelhofmann.graphic.simpic.spi.BasicLoader;
+import net.michaelhofmann.graphic.simpic.util.Parameter;
 
 /**
  *
@@ -18,11 +19,14 @@ import net.michaelhofmann.graphic.simpic.spi.BasicLoader;
  */
 public class SimpicFinder {
     
-    public List<ImageCard> listClusterCards(Path rootPath, boolean recursive)
+    public List<ImageCard> listClusterCards(Parameter para)
             throws IOException {
         
-        BasicLoader loadBasicsProc = new BasicLoader();
-        GreyChecker greyCheckerProc = new GreyChecker();
+        Path rootPath = para.getRootPath();
+        boolean recursive = para.isFindRecursive();
+        
+        BasicLoader loadBasicsProc = new BasicLoader(para);
+        GreyChecker greyCheckerProc = new GreyChecker(para);
         
         List<ImageCard> correctCards = SimpicFileUtils.streamAllImages(
                     rootPath, recursive)

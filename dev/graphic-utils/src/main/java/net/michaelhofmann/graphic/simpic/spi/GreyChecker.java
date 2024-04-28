@@ -12,6 +12,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import net.michaelhofmann.graphic.simpic.generic.Vuzzy;
+import net.michaelhofmann.graphic.simpic.util.Parameter;
 
 
 public class GreyChecker extends SimpicProcess {
@@ -21,8 +22,8 @@ public class GreyChecker extends SimpicProcess {
     public final static String ERROR_FLAG = IDENT + ".error";
     public final static String ERROR_FLAG_ACCEPT = ERROR_FLAG + ".accept";
 
-    public GreyChecker() {
-        super(IDENT);
+    public GreyChecker(Parameter para) {
+        super(IDENT, para);
     }
 
     @Override
