@@ -21,8 +21,8 @@ import org.apache.commons.io.FilenameUtils;
 public class SimpicFileUtils {
     
     public final static Set<String> allowedExtensions
-            = Set.of("bmp", "gif", "jpeg", "jpg",
-                     "png", "psd", "pspimage", "thm", "tif");   
+            = Set.of("bmp", "gif", "jpeg", "jpg", "JPG",
+                     "png", "PNG", "psd", "pspimage", "thm", "tif");   
 
     private final static BiPredicate<Path, BasicFileAttributes> imageFilter =
             (p, bfa) -> bfa.isRegularFile() && isImage(p);

@@ -6,7 +6,6 @@
 package net.michaelhofmann.graphic.simpic.generic;
 
 import net.michaelhofmann.graphic.simpic.util.SimpicFileUtils;
-import net.michaelhofmann.graphic.simpic.generic.ImageCard;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
@@ -40,7 +39,7 @@ public class SimpicFinder {
                     // Do not compare cards with itself
                     continue;
                 }
-                if (greyCheckerProc.isSimilar(card, runner)) {
+                if (greyCheckerProc.getSimilarity(card, runner).isTrue()) {
                     card.addSimilar(GreyChecker.IDENT, runner);
                 }
             }

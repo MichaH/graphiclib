@@ -8,6 +8,7 @@ package net.michaelhofmann.graphic.simpic.api;
 import net.michaelhofmann.graphic.simpic.generic.ImageCard;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import net.michaelhofmann.graphic.simpic.generic.Vuzzy;
 
 /**
  *
@@ -29,7 +30,7 @@ public abstract class SimpicProcess
     @Override
     public abstract boolean test(ImageCard card);
 
-    public Boolean isSimilar(ImageCard a, ImageCard b) {
+    public Vuzzy getSimilarity(ImageCard a, ImageCard b) {
         return null;
     }
 }

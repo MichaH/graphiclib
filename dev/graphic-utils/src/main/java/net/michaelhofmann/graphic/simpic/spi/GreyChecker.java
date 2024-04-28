@@ -11,6 +11,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import net.michaelhofmann.graphic.simpic.generic.Vuzzy;
 
 
 public class GreyChecker extends SimpicProcess {
@@ -47,20 +48,20 @@ public class GreyChecker extends SimpicProcess {
     }
 
     @Override
-    public Boolean isSimilar(ImageCard a, ImageCard b) {
+    public Vuzzy getSimilarity(ImageCard a, ImageCard b) {
         String hashA = (String)a.getAttributes().get(HASH);
         String hashB = (String)b.getAttributes().get(HASH);
         // length shoud always be equals
         if (hashA.length() != hashB.length()) {
-            return false;
+            return Vuzzy.FALSE;
         }
-        int distance = 0 ;
+        double distance = 1.0 ;
         for (int x = 0; x < hashA.length(); x++) {
             if (hashA.charAt(x) != hashB.charAt(x)) {
-                distance++;
+                distance = distance - 0.05;
             }
         }
-        return distance <= 10;
+        return Vuzzy.of(distance);
     }
     
     public BufferedImage resizeAndGreyImage(BufferedImage image,

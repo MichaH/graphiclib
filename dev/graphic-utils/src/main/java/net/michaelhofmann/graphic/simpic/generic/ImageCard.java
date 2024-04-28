@@ -5,16 +5,16 @@
  */
 package net.michaelhofmann.graphic.simpic.generic;
 
-import net.michaelhofmann.graphic.simpic.generic.MultiCluster;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -141,16 +141,16 @@ public class ImageCard {
         subCluster.addSimilar(processIdent, card);
     }
     
-    public SortedSet<ImageCard> getSortedSuperCluster(String processIdent) {
+    public List<ImageCard> getSortedSuperCluster(String processIdent) {
+        final List<ImageCard> col = new ArrayList<>();
         // We first build a sorted Set with all similar images in the
         // subcluster.
-        final TreeSet<ImageCard> col
-                = new TreeSet<ImageCard>(ImageCard.SIZE_COMPERATOR);
         subCluster.getSimilarByProcess(processIdent)
                 .stream()
                 .forEach(col::add);
         // Then we must not forget to add this card itself to this set.
         col.add(this);
+        Collections.sort(col, ImageCard.SIZE_COMPERATOR);
         return col;
     }
 }
