@@ -6,7 +6,7 @@
 
     <groupId>net.michaelhofmann</groupId>
     <artifactId>graphic-utils</artifactId>
-    <version>0.5</version>
+    <version>0.6</version>
     <properties>
         <java.version>21</java.version>
         <maven.compiler.source>21</maven.compiler.source>
